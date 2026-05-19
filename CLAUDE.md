@@ -1,15 +1,15 @@
-# oh-my-plugin — Development Guidelines
+# my-first-plugin — Development Guidelines
 
 This file contains instructions for Claude instances working on this plugin and for human contributors.
 
 ## Plugin Purpose
 
-`oh-my-plugin` is a Claude Code plugin. It extends Claude Code via skills, commands, agents, and/or hooks.
+`my-first-plugin` is a Claude Code plugin. It extends Claude Code via skills, commands, agents, and/or hooks.
 
 ## Directory Structure
 
 ```
-oh-my-plugin/
+my-first-plugin/
 ├── .claude-plugin/plugin.json   # Plugin manifest — update version on releases
 ├── skills/<name>/SKILL.md       # Model-invoked or user-invoked skills
 ├── commands/<name>.md           # Legacy slash command format (prefer skills/)
@@ -76,7 +76,7 @@ commands/foo.md       ← legacy (functionally identical)
 
 ## Testing
 
-- Install the plugin locally via Claude Code: `/plugin install path:/path/to/oh-my-plugin`
+- Install the plugin locally via Claude Code: `/plugin install path:/path/to/my-first-plugin`
 - Verify skills activate for their trigger phrases
 - Verify commands appear in `/help` output
 - Test hook scripts with `${CLAUDE_PLUGIN_ROOT}` expansion

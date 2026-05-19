@@ -12,12 +12,6 @@ This is a template skill demonstrating the Claude Code plugin skill format.
 
 Replace this section with a clear description of what your skill helps Claude accomplish.
 
-## When to Use
-
-This skill activates when the user's request involves:
-- Requests matching the trigger phrases in the frontmatter `description`
-- Topics or keywords specific to this skill's domain
-
 ## Instructions
 
 When this skill is active:
@@ -41,4 +35,3 @@ If this were a slash command (`/example-skill <target>`), the argument would be 
 ## References
 
 - [Claude Code Plugin Documentation](https://docs.anthropic.com/en/docs/claude-code/plugins)
-- See `skills/` directory in this repository for more examples

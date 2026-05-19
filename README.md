@@ -1,10 +1,10 @@
-# oh-my-plugin
+# my-first-plugin
 
 A Claude Code plugin template for extending Claude with skills, commands, agents, and hooks.
 
 ## Overview
 
-`oh-my-plugin` is a starter template for building [Claude Code plugins](https://docs.anthropic.com/en/docs/claude-code/plugins). Use it as a scaffold when creating your own plugin to distribute via GitHub.
+`my-first-plugin` is a starter template for building [Claude Code plugins](https://docs.anthropic.com/en/docs/claude-code/plugins). Use it as a scaffold when creating your own plugin to distribute via GitHub.
 
 ## Installation
 
@@ -12,7 +12,7 @@ Install via the Claude Code plugin system:
 
 ```bash
 # Install from GitHub
-/plugin install github:didi/oh-my-plugin
+/plugin install github:HuberHan/my-first-plugin
 ```
 
 Or add it as a marketplace in your Claude Code settings.
@@ -20,7 +20,7 @@ Or add it as a marketplace in your Claude Code settings.
 ## Plugin Structure
 
 ```
-oh-my-plugin/
+my-first-plugin/
 ├── .claude-plugin/
 │   └── plugin.json          # Plugin manifest (required)
 ├── skills/
