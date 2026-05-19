@@ -1,0 +1,13 @@
+{
+  "name": "oh-my-plugin",
+  "version": "0.1.0",
+  "description": "A Claude Code plugin template — extend Claude with skills, commands, agents, and hooks",
+  "author": {
+    "name": "didi",
+    "url": "https://github.com/didi"
+  },
+  "homepage": "https://github.com/didi/oh-my-plugin",
+  "repository": "https://github.com/didi/oh-my-plugin",
+  "license": "MIT",
+  "keywords": ["claude-code", "plugin", "skills", "agents", "automation"]
+}
