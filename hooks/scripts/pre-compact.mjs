@@ -6,10 +6,11 @@
  * Output (stdout): JSON with optional systemMessage added before compaction
  */
 
-const input = await readStdin();
-const event = { event: 'PreCompact', session_id: input.session_id };
+import { log } from '../logger.mjs';
 
-log(event);
+const input = await readStdin();
+
+log('PreCompact', { session_id: input.session_id });
 
 // systemMessage injected here is included in the compacted summary.
 // Use it to preserve critical context: active tasks, key decisions, file paths.
@@ -27,6 +28,3 @@ async function readStdin() {
   try { return raw ? JSON.parse(raw) : {}; } catch { return { raw }; }
 }
 
-function log(data) {
-  process.stderr.write(`[my-first-plugin:PreCompact] ${JSON.stringify(data)}\n`);
-}

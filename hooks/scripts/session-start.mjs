@@ -6,10 +6,11 @@
  * Output (stdout): JSON with optional systemMessage
  */
 
-const input = await readStdin();
-const event = { event: 'SessionStart', ...input };
+import { log } from '../logger.mjs';
 
-log(event);
+const input = await readStdin();
+
+log('SessionStart', { session_id: input.session_id, cwd: input.cwd });
 
 // Output: systemMessage is shown to Claude at session start
 console.log(JSON.stringify({
@@ -26,6 +27,3 @@ async function readStdin() {
   try { return raw ? JSON.parse(raw) : {}; } catch { return { raw }; }
 }
 
-function log(data) {
-  process.stderr.write(`[my-first-plugin:SessionStart] ${JSON.stringify(data)}\n`);
-}

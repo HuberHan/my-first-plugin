@@ -6,10 +6,11 @@
  * Output (stdout): JSON with decision "approve" or "block"
  */
 
-const input = await readStdin();
-const event = { event: 'Stop', session_id: input.session_id };
+import { log } from '../logger.mjs';
 
-log(event);
+const input = await readStdin();
+
+log('Stop', { session_id: input.session_id });
 
 // decision: "approve" — allow Claude to stop
 // decision: "block"   — force Claude to continue (provide reason)
@@ -29,6 +30,3 @@ async function readStdin() {
   try { return raw ? JSON.parse(raw) : {}; } catch { return { raw }; }
 }
 
-function log(data) {
-  process.stderr.write(`[my-first-plugin:Stop] ${JSON.stringify(data)}\n`);
-}

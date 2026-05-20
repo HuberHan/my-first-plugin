@@ -6,10 +6,11 @@
  * Output (stdout): JSON with optional systemMessage injected before Claude responds
  */
 
-const input = await readStdin();
-const event = { event: 'UserPromptSubmit', prompt: input.prompt?.slice(0, 80), session_id: input.session_id };
+import { log } from '../logger.mjs';
 
-log(event);
+const input = await readStdin();
+
+log('UserPromptSubmit', { session_id: input.session_id, prompt: input.prompt?.slice(0, 80) });
 
 // Return systemMessage to inject context before Claude processes the prompt.
 // Set continue: false to block the prompt entirely.
@@ -27,6 +28,3 @@ async function readStdin() {
   try { return raw ? JSON.parse(raw) : {}; } catch { return { raw }; }
 }
 
-function log(data) {
-  process.stderr.write(`[my-first-plugin:UserPromptSubmit] ${JSON.stringify(data)}\n`);
-}

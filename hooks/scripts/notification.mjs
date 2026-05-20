@@ -6,10 +6,11 @@
  * Output (stdout): JSON (notification already sent; output is informational only)
  */
 
-const input = await readStdin();
-const event = { event: 'Notification', message: input.message?.slice(0, 80), session_id: input.session_id };
+import { log } from '../logger.mjs';
 
-log(event);
+const input = await readStdin();
+
+log('Notification', { session_id: input.session_id, message: input.message?.slice(0, 80) });
 
 // Notification hooks are informational — Claude has already sent the notification.
 // Use this to forward to external channels or log for observability.
@@ -24,6 +25,3 @@ async function readStdin() {
   try { return raw ? JSON.parse(raw) : {}; } catch { return { raw }; }
 }
 
-function log(data) {
-  process.stderr.write(`[my-first-plugin:Notification] ${JSON.stringify(data)}\n`);
-}

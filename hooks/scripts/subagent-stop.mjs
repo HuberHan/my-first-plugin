@@ -6,10 +6,11 @@
  * Output (stdout): JSON with decision "approve" or "block"
  */
 
-const input = await readStdin();
-const event = { event: 'SubagentStop', session_id: input.session_id };
+import { log } from '../logger.mjs';
 
-log(event);
+const input = await readStdin();
+
+log('SubagentStop', { session_id: input.session_id });
 
 // Same decision interface as Stop, but scoped to subagents.
 console.log(JSON.stringify({
@@ -26,6 +27,3 @@ async function readStdin() {
   try { return raw ? JSON.parse(raw) : {}; } catch { return { raw }; }
 }
 
-function log(data) {
-  process.stderr.write(`[my-first-plugin:SubagentStop] ${JSON.stringify(data)}\n`);
-}

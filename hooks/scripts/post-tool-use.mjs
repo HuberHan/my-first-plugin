@@ -6,10 +6,11 @@
  * Output (stdout): JSON with optional systemMessage fed back to Claude
  */
 
-const input = await readStdin();
-const event = { event: 'PostToolUse', tool: input.tool_name, session_id: input.session_id };
+import { log } from '../logger.mjs';
 
-log(event);
+const input = await readStdin();
+
+log('PostToolUse', { session_id: input.session_id, tool: input.tool_name });
 
 // systemMessage is fed back to Claude after the tool result.
 // Exit code 2 + stderr will block Claude and show an error message.
@@ -27,6 +28,3 @@ async function readStdin() {
   try { return raw ? JSON.parse(raw) : {}; } catch { return { raw }; }
 }
 
-function log(data) {
-  process.stderr.write(`[my-first-plugin:PostToolUse] ${JSON.stringify(data)}\n`);
-}

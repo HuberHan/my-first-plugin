@@ -6,10 +6,11 @@
  * Output (stdout): JSON with hookSpecificOutput.permissionDecision
  */
 
-const input = await readStdin();
-const event = { event: 'PreToolUse', tool: input.tool_name, session_id: input.session_id };
+import { log } from '../logger.mjs';
 
-log(event);
+const input = await readStdin();
+
+log('PreToolUse', { session_id: input.session_id, tool: input.tool_name, input: input.tool_input });
 
 // permissionDecision: "allow" | "deny" | "ask"
 // Set to "deny" with a systemMessage to block specific tools.
@@ -27,6 +28,3 @@ async function readStdin() {
   try { return raw ? JSON.parse(raw) : {}; } catch { return { raw }; }
 }
 
-function log(data) {
-  process.stderr.write(`[my-first-plugin:PreToolUse] ${JSON.stringify(data)}\n`);
-}

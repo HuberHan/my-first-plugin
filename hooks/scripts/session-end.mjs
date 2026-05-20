@@ -6,10 +6,11 @@
  * Output (stdout): JSON (ignored by Claude Code, session is ending)
  */
 
-const input = await readStdin();
-const event = { event: 'SessionEnd', ...input };
+import { log } from '../logger.mjs';
 
-log(event);
+const input = await readStdin();
+
+log('SessionEnd', { session_id: input.session_id });
 
 console.log(JSON.stringify({ continue: true }));
 
@@ -22,6 +23,3 @@ async function readStdin() {
   try { return raw ? JSON.parse(raw) : {}; } catch { return { raw }; }
 }
 
-function log(data) {
-  process.stderr.write(`[my-first-plugin:SessionEnd] ${JSON.stringify(data)}\n`);
-}
