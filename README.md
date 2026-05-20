@@ -8,14 +8,26 @@ A Claude Code plugin template for extending Claude with skills, commands, agents
 
 ## Installation
 
-Install via the Claude Code plugin system:
+**Step 1** — Register the repo as a marketplace in `~/.claude/settings.json`:
 
-```bash
-# Install from GitHub
-/plugin install github:HuberHan/my-first-plugin
+```json
+{
+  "extraKnownMarketplaces": {
+    "my-first-plugin": {
+      "source": {
+        "source": "github",
+        "repo": "HuberHan/my-first-plugin"
+      }
+    }
+  }
+}
 ```
 
-Or add it as a marketplace in your Claude Code settings.
+**Step 2** — Install the plugin in Claude Code:
+
+```
+/plugin install my-first-plugin@my-first-plugin
+```
 
 ## Plugin Structure
 
