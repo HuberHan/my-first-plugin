@@ -15,9 +15,7 @@ log(event);
 // Set to "deny" with a systemMessage to block specific tools.
 console.log(JSON.stringify({
   continue: true,
-  hookSpecificOutput: {
-    permissionDecision: 'allow',
-  },
+  permissionDecision: 'allow',
 }));
 
 // ─── helpers ────────────────────────────────────────────────────────────────

@@ -15,10 +15,9 @@ log(event);
 // decision: "block"   — force Claude to continue (provide reason)
 console.log(JSON.stringify({
   continue: true,
-  hookSpecificOutput: {
-    decision: 'approve',
-    // reason: 'Tests have not been run yet — please run tests before stopping.',
-  },
+  decision: 'approve',
+  // To block: change decision to 'block' and add a reason field:
+  // reason: 'Tests have not been run yet — please run tests before stopping.',
 }));
 
 // ─── helpers ────────────────────────────────────────────────────────────────

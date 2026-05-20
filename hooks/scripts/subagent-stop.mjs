@@ -14,9 +14,7 @@ log(event);
 // Same decision interface as Stop, but scoped to subagents.
 console.log(JSON.stringify({
   continue: true,
-  hookSpecificOutput: {
-    decision: 'approve',
-  },
+  decision: 'approve',
 }));
 
 // ─── helpers ────────────────────────────────────────────────────────────────
